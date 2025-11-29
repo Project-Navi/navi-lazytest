@@ -1,0 +1,92 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "navi-lazytest"
+version = "1.0.0"
+description = "Set it and forget it testing - A self-improving test framework for lazy developers"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+    { name = "Project Navi" }
+]
+keywords = [
+    "testing",
+    "optimization",
+    "UCB",
+    "bandit",
+    "chaos-engineering",
+    "self-improving",
+    "machine-learning",
+    "adaptive-testing",
+    "lazy",
+    "automated",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "numpy>=1.24.0",
+    "pydantic>=2.0.0",
+]
+
+[project.optional-dependencies]
+hdr = [
+    "hdrhistogram>=0.9.0",  # High-precision latency histograms
+]
+full = [
+    "hdrhistogram>=0.9.0",
+    "aiosqlite>=0.19.0",  # Async SQLite for metrics storage
+]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/project-navi/navi-lazytest"
+Documentation = "https://github.com/project-navi/navi-lazytest#readme"
+Repository = "https://github.com/project-navi/navi-lazytest"
+Issues = "https://github.com/project-navi/navi-lazytest/issues"
+
+[project.scripts]
+lazytest = "navi_lazytest.run_spiral:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[tool.black]
+line-length = 100
+target-version = ["py310", "py311", "py312"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "C4"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
