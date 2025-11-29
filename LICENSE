@@ -1,3 +1,23 @@
+# Ethical Preamble
+
+This software is free. MIT License. No restrictions, no catches.
+
+But freedom isn't the absence of responsibility — it's the presence of choice.
+
+We built these tools with intention. They're meant to reduce toil, not replace judgment. To augment human capability, not surveil it. To make systems that learn *with* you, not *about* you.
+
+When you build with this, we ask only that you consider:
+
+- **Consent** — Does the user know? Did they agree?
+- **Care** — Does this reduce suffering or add to it?
+- **Coherence** — Does this make systems more understandable, or more opaque?
+
+These aren't legal requirements. They're design questions. The answers are yours to live with.
+
+If you use this to harm, manipulate, or exploit — the license won't stop you. But we'll know. And so will you.
+
+---
+
 MIT License
 
 Copyright (c) 2024 Project Navi
