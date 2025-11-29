@@ -65,7 +65,7 @@ Repository = "https://github.com/project-navi/navi-lazytest"
 Issues = "https://github.com/project-navi/navi-lazytest/issues"
 
 [project.scripts]
-lazytest = "navi_lazytest.run_spiral:main"
+lazytest = "navi_lazytest.orchestrator:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["."]
