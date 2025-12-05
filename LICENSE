@@ -1,41 +1,25 @@
-# Ethical Preamble
+Project Navi - Dual License
 
-This software is free. MIT License. No restrictions, no catches.
+This software is dual-licensed:
 
-But freedom isn't the absence of responsibility — it's the presence of choice.
+Option A: GNU Affero General Public License v3.0 (AGPL-3.0)
+- For open source use
+- See https://www.gnu.org/licenses/agpl-3.0.html
 
-We built these tools with intention. They're meant to reduce toil, not replace judgment. To augment human capability, not surveil it. To make systems that learn *with* you, not *about* you.
+Option B: Commercial License (PNEUL-D v2.2)
+- For proprietary/closed-source use
+- Contact legal@projectnavi.ai for licensing
 
-When you build with this, we ask only that you consider:
+Full license terms: /docs/legal/
 
-- **Consent** — Does the user know? Did they agree?
-- **Care** — Does this reduce suffering or add to it?
-- **Coherence** — Does this make systems more understandable, or more opaque?
+## Enhanced Support for Ethical Projects
 
-These aren't legal requirements. They're design questions. The answers are yours to live with.
+Open source projects using this software under AGPL-3.0 may qualify for enhanced
+technical support and collaboration by voluntarily aligning with our ethical
+principles. This creates no additional license obligations - it's a separate
+service relationship for projects committed to responsible development.
 
-If you use this to harm, manipulate, or exploit — the license won't stop you. But we'll know. And so will you.
-
----
-
-MIT License
+See ETHICAL_SUPPORT_FRAMEWORK.md for details.
 
 Copyright (c) 2024 Project Navi
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+All rights reserved.

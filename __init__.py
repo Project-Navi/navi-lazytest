@@ -1,6 +1,14 @@
 """
 Navi LazyTest - Set it and forget it testing
 
+Copyright (c) 2024-2025 Project Navi. All rights reserved.
+
+SPDX-License-Identifier: AGPL-3.0-or-later OR LicenseRef-PNEUL-D-2.2
+
+This software is dual-licensed:
+- AGPL-3.0-or-later for open source use
+- PNEUL-D v2.2 commercial license (contact legal@projectnavi.ai)
+
 A self-improving test framework that learns from each iteration to optimize
 system configuration using UCB (Upper Confidence Bound) bandit algorithms.
 
