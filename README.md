@@ -21,6 +21,18 @@ LazyTest embodies one principle: **you shouldn't have to think about it.**
 - Progressive difficulty so you don't configure complexity
 - Never throws away what it learned
 
+## Who Should Use LazyTest
+
+**Infrastructure teams** who need to optimize CI under limited budget.
+
+**Data-platform and RAG infra owners** (vector DBs, graph DBs, relational stores) who want to automatically discover brittle configurations and prioritize high-value tests.
+
+**Product teams** that need an auditable, repeatable mechanism to discover configuration tradeoffs and quarantine flaky or dangerous setups.
+
+### Why It Fits Multi-Store Stacks
+
+LazyTest treats any test target as a pluggable adapter — whether your target is a relational DB, a vector store (Qdrant/pgvector), or a graph DB (Neo4j). Combined with RRF-style fusion and configurable rewards, LazyTest can help you optimize retrieval and indexing configs across the entire retrieval stack.
+
 ## Features
 
 - **Self-Improving**: UCB optimization learns optimal configurations
@@ -93,6 +105,46 @@ Translation: it tries new configs enough to learn, then exploits what works.
 
 ## Implementing Your Adapter
 
+### 10-Minute Adapter Checklist
+
+Getting started is fast. Follow this checklist:
+
+1. **Copy the template**
+   ```bash
+   cp examples/adapters/template_adapter.py my_adapter.py
+   ```
+
+2. **Fill in connection logic** in `setup()` and `teardown()`
+
+3. **Implement query execution** in `execute_query()` — return `{success, latency_ms, result_count, results}`
+
+4. **Run a quick test**
+   ```python
+   from my_adapter import MyAdapter
+   from navi_lazytest import LazyTestRunner
+
+   runner = LazyTestRunner(adapter=MyAdapter("localhost:5432"))
+   runner.run(max_iterations=5)
+   ```
+
+5. **Check your receipts** in `receipts/` — you're done!
+
+See [`examples/adapters/template_adapter.py`](examples/adapters/template_adapter.py) for a fully-documented starting point.
+
+### Required Methods
+
+| Method | Purpose |
+|--------|---------|
+| `setup()` | Initialize connections, create schemas |
+| `teardown()` | Clean up resources, close connections |
+| `configure(config)` | Apply OptimizerConfig parameters |
+| `load_corpus(corpus)` | Load test data (entities, chunks, triples) |
+| `execute_query(query)` | Run a query, return results with timing |
+| `health_check()` | Return True if system is responsive |
+| `get_resource_usage()` | Return dict with memory_mb, cpu_percent, etc. |
+
+### Minimal Example
+
 ```python
 from navi_lazytest import TestTargetAdapter, OptimizerConfig
 
@@ -125,6 +177,15 @@ class MyDatabaseAdapter(TestTargetAdapter):
     def get_resource_usage(self) -> dict:
         return {"memory_mb": get_memory(), "connections": self.db.pool_size}
 ```
+
+### Supported Adapters
+
+| Adapter | Target | Status |
+|---------|--------|--------|
+| [`template_adapter`](examples/adapters/template_adapter.py) | Template/Starting Point | ✅ Available |
+| `sqlite_adapter` | SQLite / Relational DBs | 🔜 Coming Soon |
+| `qdrant_adapter` | Qdrant / Vector Stores | 🔜 Coming Soon |
+| `neo4j_adapter` | Neo4j / Graph DBs | 🔜 Coming Soon |
 
 ## CLI Usage
 
